@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
-import 'package:vaquinha_burger_mobile/app/modules/splash/splash_page.dart';
 import 'package:vaquinha_burger_mobile/app/routes/splash_routes.dart';
 
 void main() {
