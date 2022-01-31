@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
 
 class VaquinhaButton extends StatelessWidget {
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
   final String label;
   final double? width;
   final double height;
@@ -10,9 +10,9 @@ class VaquinhaButton extends StatelessWidget {
 
   const VaquinhaButton({
     Key? key,
-    this.onPressed,
+    required this.onPressed,
     required this.label,
-    this.width = double.maxFinite,
+    this.width,
     this.height = 50,
     this.color,
   }) : super(key: key);
