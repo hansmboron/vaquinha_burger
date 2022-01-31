@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
+import 'package:vaquinha_burger_mobile/app/modules/auth/auth_routers.dart';
 import 'package:vaquinha_burger_mobile/app/routes/splash_routes.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Vaquinha Burger',
       getPages: [
         ...SplashRoutes.routers,
+        ...AuthRouters.routers,
       ],
       initialRoute: '/',
     );

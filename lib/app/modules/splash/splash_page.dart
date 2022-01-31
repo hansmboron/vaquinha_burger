@@ -39,7 +39,9 @@ class SplashPage extends StatelessWidget {
                   ),
                   VaquinhaButton(
                     label: 'ACESSAR',
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed('auth/login');
+                    },
                     width: context.widthTransformer(reducedBy: 40),
                     height: 35,
                   )

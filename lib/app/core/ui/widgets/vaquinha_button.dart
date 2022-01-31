@@ -12,7 +12,7 @@ class VaquinhaButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.label,
-    this.width,
+    this.width = double.maxFinite,
     this.height = 50,
     this.color,
   }) : super(key: key);
