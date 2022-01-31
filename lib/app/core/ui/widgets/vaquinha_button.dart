@@ -29,7 +29,7 @@ class VaquinhaButton extends StatelessWidget {
           style: VaquinaUI.textBold.copyWith(fontSize: 14),
         ),
         style: ElevatedButton.styleFrom(
-          shape: StadiumBorder(),
+          shape: const StadiumBorder(),
           primary: color,
         ),
       ),
