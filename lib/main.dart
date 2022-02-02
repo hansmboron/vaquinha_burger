@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/bindings/application_bindings.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
-import 'package:vaquinha_burger_mobile/app/modules/auth/auth_routers.dart';
+import 'package:vaquinha_burger_mobile/app/routes/auth_routers.dart';
 import 'package:vaquinha_burger_mobile/app/routes/splash_routes.dart';
 
 void main() {

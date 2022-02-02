@@ -22,6 +22,7 @@ class VaquinhaTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      validator: validator,
       onChanged: onChange,
       cursorColor: context.theme.primaryColor,
       decoration: InputDecoration(

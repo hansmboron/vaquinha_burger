@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_appbar.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_button.dart';
-import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_textfield.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
