@@ -47,9 +47,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   VaquinhaButton(
-                    onPressed: () {
-                      Get.find<RegisterController>().qualquer();
-                    },
+                    onPressed: () {},
                     label: 'CADASTRAR',
                   ),
                 ],
