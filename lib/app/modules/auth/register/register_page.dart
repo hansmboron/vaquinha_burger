@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_appbar.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_button.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_textfield.dart';
+import 'package:vaquinha_burger_mobile/app/modules/auth/register/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class RegisterPage extends StatelessWidget {
                   const SizedBox(height: 40),
                   VaquinhaButton(
                     onPressed: () {
-                      Get.back();
+                      Get.find<RegisterController>().qualquer();
                     },
                     label: 'CADASTRAR',
                   ),

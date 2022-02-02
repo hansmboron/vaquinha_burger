@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_appbar.dart';
@@ -39,9 +38,7 @@ class LoginPage extends StatelessWidget {
                       VaquinhaTextField(label: 'Senha', obscureText: true),
                       const SizedBox(height: 50),
                       VaquinhaButton(
-                        onPressed: () {
-                          Get.toNamed('/auth/register');
-                        },
+                        onPressed: () {},
                         label: 'ENTER',
                       ),
                       const Spacer(),
@@ -50,7 +47,9 @@ class LoginPage extends StatelessWidget {
                         children: [
                           Text('Não possui uma conta?'),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed('/auth/register');
+                            },
                             child: Text(
                               'Cadastre-se',
                               style: VaquinaUI.textBold,
