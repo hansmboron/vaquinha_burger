@@ -8,11 +8,18 @@ class MenuPage extends GetView<MenuController> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return ProductTile();
-      },
+    return Obx(
+      () => RefreshIndicator(
+        onRefresh: controller.refreshPage,
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: controller.menu.length,
+          itemBuilder: (context, index) {
+            final prod = controller.menu[index];
+            return ProductTile(product: prod);
+          },
+        ),
+      ),
     );
   }
 }

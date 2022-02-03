@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:vaquinha_burger_mobile/app/core/ui/formatter_helper.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
+import 'package:vaquinha_burger_mobile/app/models/product_model.dart';
 
 class ProductTile extends StatelessWidget {
-  const ProductTile({Key? key}) : super(key: key);
+  final ProductModel product;
+  const ProductTile({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,18 +13,20 @@ class ProductTile extends StatelessWidget {
       onTap: () {},
       child: Container(
         margin: const EdgeInsets.all(10),
-        height: 80,
+        height: 90,
         child: Row(
           children: [
             Container(
-              width: 80,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              width: 90,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                 ),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/lanche.png'),
+                  image: NetworkImage(
+                    'http://dartweek.academiadoflutter.com.br/images${product.image}',
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -35,10 +40,12 @@ class ProductTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      'X-TUDÃO',
+                      product.name,
                       style: VaquinaUI.textBold,
                     ),
-                    Text(r'R$ 200.00'),
+                    Text(
+                      FormatterHelper.formatCurrency(product.price),
+                    ),
                   ],
                 ),
               ),
