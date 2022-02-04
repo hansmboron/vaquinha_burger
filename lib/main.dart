@@ -5,6 +5,7 @@ import 'package:vaquinha_burger_mobile/app/core/bindings/application_bindings.da
 import 'package:vaquinha_burger_mobile/app/core/ui/vaquinha_ui.dart';
 import 'package:vaquinha_burger_mobile/app/routes/auth_routers.dart';
 import 'package:vaquinha_burger_mobile/app/routes/home_routers.dart';
+import 'package:vaquinha_burger_mobile/app/routes/product_routers.dart';
 import 'package:vaquinha_burger_mobile/app/routes/splash_routes.dart';
 
 Future<void> main() async {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ...SplashRoutes.routers,
         ...AuthRouters.routers,
         ...HomeRouters.routers,
+        ...ProductRouters.routers,
       ],
       initialRoute: '/',
     );
