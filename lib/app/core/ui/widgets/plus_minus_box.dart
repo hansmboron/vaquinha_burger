@@ -32,7 +32,6 @@ class PlusMinusBox extends StatelessWidget {
       shadowColor: Colors.black26,
       child: Container(
         padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: backgroundColor ?? Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -46,7 +45,6 @@ class PlusMinusBox extends StatelessWidget {
               child: Text(
                 label ?? '',
                 style: const TextStyle(
-                  fontSize: 15,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

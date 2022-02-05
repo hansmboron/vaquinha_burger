@@ -5,6 +5,8 @@ import 'package:vaquinha_burger_mobile/app/core/services/auth_service.dart';
 import 'package:vaquinha_burger_mobile/app/core/services/shopping_card_service.dart';
 import 'package:vaquinha_burger_mobile/app/modules/menu/menu_bindings.dart';
 import 'package:vaquinha_burger_mobile/app/modules/menu/menu_page.dart';
+import 'package:vaquinha_burger_mobile/app/modules/order/shopping_card/shopping_card_bindings.dart';
+import 'package:vaquinha_burger_mobile/app/modules/order/shopping_card/shopping_card_page.dart';
 
 class HomeController extends GetxController {
   static const int NAVIGATOR_KEY = 1;
@@ -35,6 +37,14 @@ class HomeController extends GetxController {
         settings: settings,
         page: () => const MenuPage(),
         binding: MenuBindings(),
+        transition: Transition.fade,
+      );
+    }
+    if (settings.name == '/order/shooping_card') {
+      return GetPageRoute(
+        settings: settings,
+        page: () => ShoppingCardPage(),
+        binding: ShoppingCardBindings(),
         transition: Transition.fade,
       );
     }

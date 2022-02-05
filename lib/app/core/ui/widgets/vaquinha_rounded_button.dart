@@ -19,7 +19,7 @@ class VaquinhaRoundedButton extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          color: Colors.grey,
+          color: Colors.grey[600],
           fontSize: fontSize,
         ),
       ),
