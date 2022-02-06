@@ -118,7 +118,13 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                           SizedBox(
                             child: VaquinhaButton(
                               label: 'FINALIZAR',
-                              onPressed: () {},
+                              onPressed: () {
+                                final formValid =
+                                    _formKey.currentState?.validate() ?? false;
+                                if (formValid) {
+                                  controller.createOrder();
+                                }
+                              },
                             ),
                           )
                         ],
@@ -187,7 +193,7 @@ class _CpfField extends GetView<ShoppingCardController> {
           },
           validator: Validatorless.multiple([
             Validatorless.required('CPF Obrigatório'),
-            Validatorless.email('Email Inválido')
+            Validatorless.cpf('CPF Inválido')
           ]),
           decoration: const InputDecoration(
             hintText: 'Digite o CPF',
