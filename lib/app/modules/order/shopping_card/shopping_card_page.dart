@@ -79,10 +79,10 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                                         quantity: p.quantity,
                                         price: p.product.price,
                                         minusCallback: () {
-                                          controller.addQuantityInProduct(p);
+                                          controller.subtractQuantityInProduct(p);
                                         },
                                         plusCallback: () {
-                                          controller.subtractQuantityInProduct(p);
+                                          controller.addQuantityInProduct(p);
                                         },
                                       ),
                                     ),
