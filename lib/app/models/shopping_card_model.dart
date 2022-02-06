@@ -1,11 +1,11 @@
 import 'package:vaquinha_burger_mobile/app/models/product_model.dart';
 
-class ShoopingCardModel {
+class ShoppingCardModel {
   int quantity;
-  ProductModel productModel;
+  ProductModel product;
 
-  ShoopingCardModel({
+  ShoppingCardModel({
     required this.quantity,
-    required this.productModel,
+    required this.product,
   });
 }

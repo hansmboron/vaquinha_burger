@@ -28,100 +28,101 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                   key: _formKey,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Carrinho',
-                              style: context.textTheme.headline5?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: context.theme.primaryColorDark,
-                              ),
+                    child: Visibility(
+                      visible: controller.products.isNotEmpty,
+                      replacement: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Carrinho',
+                            style: context.textTheme.headline5?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: context.theme.primaryColorDark,
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.delete_outline_rounded,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: PlusMinusBox(
-                                label: 'X-TUDAO',
-                                calculateTotal: true,
-                                elevated: true,
-                                backgroundColor: Colors.white,
-                                quantity: 1,
-                                price: 12.99,
-                                minusCallback: () {},
-                                plusCallback: () {},
-                              ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: PlusMinusBox(
-                                label: 'X-TUDAO',
-                                calculateTotal: true,
-                                elevated: true,
-                                backgroundColor: Colors.white,
-                                quantity: 1,
-                                price: 12.99,
-                                minusCallback: () {},
-                                plusCallback: () {},
-                              ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: PlusMinusBox(
-                                label: 'X-TUDAO',
-                                calculateTotal: true,
-                                elevated: true,
-                                backgroundColor: Colors.white,
-                                quantity: 1,
-                                price: 12.99,
-                                minusCallback: () {},
-                                plusCallback: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Total do pedido',
-                              style: context.textTheme.bodyText1?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              FormatterHelper.formatCurrency(200),
-                              style: context.textTheme.headline6?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        const SizedBox(height: 10),
-                        const _AddressField(),
-                        const _CpfField(),
-                        const Spacer(),
-                        SizedBox(
-                          child: VaquinhaButton(
-                            label: 'FINALIZAR',
-                            onPressed: () {},
                           ),
-                        )
-                      ],
+                          const SizedBox(height: 10),
+                          const Text('Nenhum item adicionando no carrinho!')
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Carrinho',
+                                style: context.textTheme.headline5?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: context.theme.primaryColorDark,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: controller.clear,
+                                icon: const Icon(
+                                  Icons.delete_outline_rounded,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Obx(
+                            () => Column(
+                              children: controller.products
+                                  .map(
+                                    (p) => Container(
+                                      margin: const EdgeInsets.symmetric(vertical: 10),
+                                      child: PlusMinusBox(
+                                        label: p.product.name,
+                                        calculateTotal: true,
+                                        elevated: true,
+                                        backgroundColor: Colors.white,
+                                        quantity: p.quantity,
+                                        price: p.product.price,
+                                        minusCallback: () {
+                                          controller.addQuantityInProduct(p);
+                                        },
+                                        plusCallback: () {
+                                          controller.subtractQuantityInProduct(p);
+                                        },
+                                      ),
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Total do pedido:',
+                                style: context.textTheme.bodyText1?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Obx(
+                                () => Text(
+                                  FormatterHelper.formatCurrency(controller.totalValue),
+                                  style: context.textTheme.headline6?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Divider(),
+                          const SizedBox(height: 10),
+                          const _AddressField(),
+                          const _CpfField(),
+                          const Spacer(),
+                          SizedBox(
+                            child: VaquinhaButton(
+                              label: 'FINALIZAR',
+                              onPressed: () {},
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -134,7 +135,7 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
   }
 }
 
-class _AddressField extends StatelessWidget {
+class _AddressField extends GetView<ShoppingCardController> {
   const _AddressField({Key? key}) : super(key: key);
 
   @override
@@ -149,7 +150,9 @@ class _AddressField extends StatelessWidget {
         ),
         TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          onChanged: (value) {},
+          onChanged: (value) {
+            controller.address = value;
+          },
           validator: Validatorless.required('Endereço Obrigatório'),
           decoration: const InputDecoration(
             hintText: 'Digite o Endereço',
@@ -179,7 +182,9 @@ class _CpfField extends GetView<ShoppingCardController> {
         ),
         TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          onChanged: (value) {},
+          onChanged: (value) {
+            controller.cpf = value;
+          },
           validator: Validatorless.multiple([
             Validatorless.required('CPF Obrigatório'),
             Validatorless.email('Email Inválido')

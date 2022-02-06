@@ -42,10 +42,12 @@ class PlusMinusBox extends StatelessWidget {
           children: [
             Visibility(
               visible: label != null,
-              child: Text(
-                label ?? '',
-                style: const TextStyle(
-                  overflow: TextOverflow.ellipsis,
+              child: Expanded(
+                child: Text(
+                  label ?? '',
+                  style: const TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
             ),

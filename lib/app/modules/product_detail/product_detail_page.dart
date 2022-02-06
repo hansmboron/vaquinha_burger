@@ -59,11 +59,14 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                   ),
                   const SizedBox(height: 16),
                   Obx(() {
-                    return PlusMinusBox(
-                      minusCallback: controller.removeProduct,
-                      plusCallback: controller.addProduct,
-                      price: controller.product.price,
-                      quantity: controller.quantity,
+                    return Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: PlusMinusBox(
+                        minusCallback: controller.removeProduct,
+                        plusCallback: controller.addProduct,
+                        price: controller.product.price,
+                        quantity: controller.quantity,
+                      ),
                     );
                   }),
                   const Divider(),
