@@ -1,5 +1,5 @@
-# vaquinha_burger_mobile
-Vaquinha Burger Mobile, aplicativo baseado nos vídeos do Dart Week 5 por Rodrigo Rahman 
+# Vaquinha Burger
+Vaquinha Burger Mobile, aplicativo baseado nos vídeos do Dart Week 5 por Rodrigo Rahman.
 
 ### Screenshot
 
@@ -20,7 +20,7 @@ Vaquinha Burger Mobile, aplicativo baseado nos vídeos do Dart Week 5 por Rodrig
 
 ### O que aprendi
 
-Construindo este aplicativo conheci o widget 'visibility' que nunca tinha usado antes, é um widget muito útil que renderiza na tela um determinado conjunto de codigo de acordo com alguma condição.
+Construindo este aplicativo conheci o widget 'visibility' que nunca tinha usado antes, é um widget muito útil que renderiza na tela um determinado conjunto de código de acordo com alguma condição.
 
 ```dart
 ...
@@ -49,7 +49,6 @@ child: Visibility(
 ## Autor
 
 - Website - [Hans M Boron](https://www.mehsys.com.br)
-- Frontend Mentor - [@hansmboron](https://www.frontendmentor.io/profile/hansmboron)
 - GitHub - [@hansmboron](https://www.github.com/hansmboron)
 - YouTube - [@HansMBoron](https://www.youtube.com/c/HansMBoron)
 - LinkedIn - [@hansmateusboron](https://www.linkedin.com/in/hansmateusboron/)
