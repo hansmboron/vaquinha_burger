@@ -57,6 +57,7 @@ class ShoppingCardController extends GetxController {
     var orderPix = await _orderRepository.createOrder(order);
     orderPix = orderPix.copyWith(totalValue: totalValue);
 
+    clear();
     Get.toNamed('/orders/finished', arguments: orderPix);
     Get.back(id: HomeController.NAVIGATOR_KEY);
   }

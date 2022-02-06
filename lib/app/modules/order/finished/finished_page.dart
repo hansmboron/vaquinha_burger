@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burger_mobile/app/core/ui/widgets/vaquinha_button.dart';
+import 'package:vaquinha_burger_mobile/app/models/order_pix_model.dart';
 
 class FinishedPage extends StatelessWidget {
-  const FinishedPage({Key? key}) : super(key: key);
+  final OrderPix _orderPix = Get.arguments;
+
+  FinishedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,9 @@ class FinishedPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   VaquinhaButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed('orders/pix', arguments: _orderPix);
+                    },
                     label: 'PIX',
                     color: context.theme.primaryColorDark,
                     height: 35,
@@ -41,7 +46,9 @@ class FinishedPage extends StatelessWidget {
                   ),
                   const Spacer(),
                   VaquinhaButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.offAllNamed('/home');
+                    },
                     label: 'FECHAR',
                     width: context.widthTransformer(reducedBy: 10),
                   ),
